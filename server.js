@@ -1,6 +1,10 @@
 const express = require('express')
-const app = express();
+const morgan = require('morgan')
 require('dotenv').config({path: './config/config.env'})
+
+// setup server
+const app = express();
+app.use(morgan('dev'))
 // import routes
 const Bootcamps = require('./Routes/bootcamps')
 app.use('/bootcamps' ,Bootcamps)
